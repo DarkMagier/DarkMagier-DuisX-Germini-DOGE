@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* ---- Gemini 政府专用主题 ---- */
+:root {
+    --gov-bg: #f5f7fa;
+    --gov-text: #0f172a;
+
+    --gov-primary: #1d3a6e;              /* 政务蓝 */
+    --gov-primary-hover: #162f59;
+
+    --gov-accent: #e8b923;               /* 金色点缀（联邦徽章风） */
+    --gov-border: #e2e8f0;
+
+    --gov-card-bg: #ffffff;
+}
+
+/* Tailwind 变量导出 */
+@theme inline {
+    --color-background: var(--gov-bg);
+    --color-foreground: var(--gov-text);
+    --color-primary: var(--gov-primary);
+    --color-primary-hover: var(--gov-primary-hover);
+    --color-accent: var(--gov-accent);
+    --color-border: var(--gov-border);
+}
+
+body {
+    background: var(--gov-bg);
+    color: var(--gov-text);
+    font-family: system-ui, sans-serif;
+}
+
+/* 卡片基础样式 */
+.gov-card {
+    @apply bg-white border border-[var(--gov-border)] rounded-xl shadow-md p-6 transition hover:shadow-xl;
+}
+
+/* 标题（非常关键） */
+.gov-title {
+    @apply text-4xl font-bold text-[var(--gov-primary)];
+}
+
+/* 二级标题 */
+.gov-section-title {
+    @apply text-2xl font-semibold text-[var(--gov-primary)];
+}
+
+/* 按钮 */
+.gov-btn {
+    @apply px-5 py-2 rounded-lg text-white
+    bg-[var(--gov-primary)] hover:bg-[var(--gov-primary-hover)]
+    transition font-medium shadow-md hover:shadow-lg;
+}
+
+.gov-btn-accent {
+    @apply px-5 py-2 rounded-lg text-black bg-[var(--gov-accent)]
+    font-semibold shadow hover:brightness-105 transition;
+}
+
+/* 多语言切换按钮 */
+.lang-btn {
+    @apply px-2 py-1 text-sm hover:underline cursor-pointer;
+}
+
+.lang-active {
+    @apply font-bold underline;
+}
+
+/* 顶部 Banner */
+.gov-banner {
+    @apply w-full bg-[var(--gov-primary)] text-white py-10 rounded-b-3xl shadow-lg;
+}
